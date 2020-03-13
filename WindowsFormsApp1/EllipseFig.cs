@@ -11,36 +11,24 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    internal class EllipseFig
+    internal class EllipseFig : Figure
     {
-        public int Xsize, Ysize;
-        public int X, Y;
-        public EllipseFig(object sender)
-        {
-            (sender as Button).Show();
-        }
 
-        public EllipseFig(int X, int Y, int Xsize, int Ysize)
-        {
-            this.X = X;
-            this.Y = Y;
-            this.Xsize = Xsize;
-            this.Ysize = Ysize;
-        }
 
-        public string Draw(Graphics draw)
+        public override string Draw()
         {
+
             Pen pen = new Pen(Color.Black, 3);
-            Point point = new Point(X, Y);
-            Size size = new Size(Xsize, Ysize);
+            Point point = new Point((int)x, (int)y);
+            Size size = new Size((int)xsize, (int)ysize);
 
             Rectangle rect = new Rectangle(point, size);
             draw.DrawEllipse(pen, rect);
 
             SolidBrush myCorp = new SolidBrush(Color.Blue);
-            draw.FillEllipse(myCorp, (float)X, (float)Y, (float)Xsize, (float)Ysize);
+            draw.FillEllipse(myCorp, (float)x, (float)y, (float)xsize, (float)ysize);
 
-            return $"Ellipse({X},{Y},{Xsize},{Ysize})";
+            return $"Ellipse({x},{y},{xsize},{ysize})";
         }
     }
 }

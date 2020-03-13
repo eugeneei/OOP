@@ -11,29 +11,17 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public class LineFig
+    public class LineFig : Figure
     {
-        public int X, Y, Xsize, Ysize;
-        public LineFig(object sender)
-        {
-            (sender as Button).Show();
-        }
 
-        public LineFig(int X, int Y, int Xsize, int Ysize)
+        public override string Draw()
         {
-            this.X = X;
-            this.Y = Y;
-            this.Xsize = Xsize;
-            this.Ysize = Ysize;
 
-        }
-        public string Draw(Graphics draw)
-        {
             Pen pen = new Pen(Color.Black, 5);
-            Point a = new Point(X, Y);
-            Point b = new Point(Xsize, Ysize);
+            Point a = new Point((int)x, (int)y);
+            Point b = new Point((int)xsize, (int)ysize);
             draw.DrawLine(pen, a, b);
-            return $"Line({X},{Y},{Xsize},{Ysize})";
+            return $"Line({x},{y},{xsize},{ysize})";
         }
     }
 }

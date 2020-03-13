@@ -11,15 +11,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    internal class FigureList
+    public class FigureList
     {
-        public FigureList(object LineButton, object RectangleButton, object EllipseButton)
-        {
-            LineFig a1 = new LineFig(LineButton);
-            RectangleFig a2 = new RectangleFig(RectangleButton);
-            EllipseFig a3 = new EllipseFig(EllipseButton);
+        List<Figure> list = new List<Figure>();
 
+        public void Add(Figure obj)
+        {
+            list.Add(obj);
         }
 
+        public void Draw()
+        {
+            for (var i = 0; i < list.Count; i++)
+            {
+                list[i].Draw();
+            }
+        }
     }
 }

@@ -10,14 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public class Figure
+    public abstract class Figure
     {
-        public Figure()      
+        protected float x, y, xsize, ysize;
+        protected Graphics draw;
+        protected Form1 Form;
+        public abstract string Draw();
+        public void SetCoordinates(Graphics draw,float x, float y, float xsize, float ysize)
         {
-            // Pen myPen = new Pen(Color.Black, 1);
-            // Graphics g = Graphics.FromHwnd(.Handle);
+            this.x = (int)x;
+            this.x = (int)y;
+            this.xsize = (int)xsize;
+            this.ysize = (int)ysize;
+            this.draw = draw;
         }
-
     }
     
 }

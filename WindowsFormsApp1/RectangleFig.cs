@@ -12,28 +12,15 @@ namespace WindowsFormsApp1
 {
     public class RectangleFig : Figure
     {
-        public float X, Y, Xsize, Ysize;
-            
-        public RectangleFig(object sender)
+        public override string Draw()
         {
-            (sender as Button).Show();
-        }
-        public RectangleFig(float X, float Y, float Xsize, float Ysize)
-        {
-            this.X = X;
-            this.Y = Y;
-            this.Xsize = Xsize;
-            this.Ysize = Ysize;
-        }
 
-        public string Draw(Graphics draw)
-        {
             Pen pen = new Pen(Color.Black, 3);
-            draw.DrawRectangle(pen, X, Y, Xsize, Ysize);
+            draw.DrawRectangle(pen, x, y, xsize, ysize);
             SolidBrush myCorp = new SolidBrush(Color.Olive);
-            draw.FillRectangle(myCorp, X, Y, Xsize, Ysize);
+            draw.FillRectangle(myCorp, x, y, xsize, ysize);
 
-            return $"Rectangle({X},{Y},{Xsize},{Ysize})";
+            return $"Rectangle({x},{y},{xsize},{ysize})";
         }
     }
 }
