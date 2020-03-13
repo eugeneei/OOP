@@ -12,10 +12,13 @@ namespace WindowsFormsApp1
 {
     public abstract class Figure
     {
+
         protected float x, y, xsize, ysize;
         protected Graphics draw;
         protected Form1 Form;
+
         public abstract string Draw();
+
         public void SetCoordinates(Graphics draw,float x, float y, float xsize, float ysize)
         {
             this.x = (int)x;

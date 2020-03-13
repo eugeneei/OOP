@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         Figure figure;
-        Serial serial = new Serial();
+        FigureList serial = new FigureList();
 
         public Form1()
         {
@@ -33,7 +33,8 @@ namespace WindowsFormsApp1
             figure = rect;
             figure.SetCoordinates(g, (float)numericUpDown1.Value, (float)numericUpDown2.Value, (float)numericUpDown3.Value, (float)numericUpDown4.Value);
 
-            serial.LogAdd(figure.Draw());
+            serial.Add(rect);
+            serial.Draw();
             serial.Show(listBox1);
         }
 
@@ -53,7 +54,8 @@ namespace WindowsFormsApp1
             figure = line;
             figure.SetCoordinates(g, (int)numericUpDown1.Value, (int)numericUpDown2.Value, (int)numericUpDown3.Value, (int)numericUpDown4.Value);
 
-            serial.LogAdd(figure.Draw());
+            serial.Add(line);
+            serial.Draw();
             serial.Show(listBox1);
         }
 
@@ -65,7 +67,8 @@ namespace WindowsFormsApp1
             figure = ell;
             figure.SetCoordinates(g, (int)numericUpDown1.Value, (int)numericUpDown2.Value, (int)numericUpDown3.Value, (int)numericUpDown4.Value);
 
-            serial.LogAdd(figure.Draw());
+            serial.Add(ell);
+            serial.Draw();
             serial.Show(listBox1);
         }
     }
