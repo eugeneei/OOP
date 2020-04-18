@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApp1
 {
@@ -22,12 +17,12 @@ namespace WindowsFormsApp1
             list.Add(fig);
         }
 
-        public void Draw()
+        public void Draw(Graphics d)
         {
             log.Clear();
             for (var i = 0; i < list.Count; i++)
             {
-                log.Add(list[i].Draw());
+                log.Add(list[i].Draw(d));
             }
         }
 
@@ -41,9 +36,33 @@ namespace WindowsFormsApp1
         }
         public void Clear(object obj)
         {
-                (obj as ListBox).Items.Clear();
-                list.Clear();
-                log.Clear();
+            (obj as ListBox).Items.Clear();
+            list.Clear();
+            log.Clear();
+        }
+
+
+        public void SaveFile(string file)
+        {
+            XmlSerializer formatter = new XmlSerializer(list.GetType());
+
+            using (FileStream fs = new FileStream(file, FileMode.Create))
+            {
+                formatter.Serialize(fs, list);
+            }
+        }
+
+        public void LoadFile(string file, Graphics graph)
+        {
+            log.Clear();
+
+            XmlSerializer formatter = new XmlSerializer(list.GetType());
+            using (FileStream fs = new FileStream(file, FileMode.Open))
+            {
+                list = (List<Figure>)formatter.Deserialize(fs);
+            }
+
+            this.Draw(graph);
         }
     }
 }

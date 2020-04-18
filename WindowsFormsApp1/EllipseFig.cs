@@ -7,17 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Runtime.Serialization;
 
 namespace WindowsFormsApp1
 {
-    internal class EllipseFig : Figure
+    [Serializable]
+    public class EllipseFig : Figure
     {
 
+        public float x, y, xsize, ysize;
 
-        public override string Draw()
+        public void SetCoordinates(float x, float y, float xsize, float ysize)
         {
+            this.x = (int)x;
+            this.y = (int)y;
+            this.xsize = (int)xsize;
+            this.ysize = (int)ysize;
+        }
+        
 
+        public override string Draw(Graphics draw)
+        {
             Pen pen = new Pen(Color.Black, 3);
             Point point = new Point((int)x, (int)y);
             Size size = new Size((int)xsize, (int)ysize);

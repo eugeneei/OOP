@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RectBut = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -44,16 +45,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.SaveStrip = new System.Windows.Forms.ToolStripButton();
+            this.LoadStrip = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(246, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(245, 50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(927, 565);
             this.pictureBox1.TabIndex = 1;
@@ -61,7 +66,7 @@
             // 
             // RectBut
             // 
-            this.RectBut.Location = new System.Drawing.Point(25, 274);
+            this.RectBut.Location = new System.Drawing.Point(24, 312);
             this.RectBut.Name = "RectBut";
             this.RectBut.Size = new System.Drawing.Size(178, 67);
             this.RectBut.TabIndex = 2;
@@ -76,7 +81,7 @@
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(25, 63);
+            this.numericUpDown1.Location = new System.Drawing.Point(24, 101);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -94,7 +99,7 @@
             0,
             0,
             0});
-            this.numericUpDown2.Location = new System.Drawing.Point(118, 63);
+            this.numericUpDown2.Location = new System.Drawing.Point(117, 101);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -111,7 +116,7 @@
             0,
             0,
             0});
-            this.numericUpDown3.Location = new System.Drawing.Point(25, 151);
+            this.numericUpDown3.Location = new System.Drawing.Point(24, 189);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -128,7 +133,7 @@
             0,
             0,
             0});
-            this.numericUpDown4.Location = new System.Drawing.Point(118, 151);
+            this.numericUpDown4.Location = new System.Drawing.Point(117, 189);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -140,7 +145,7 @@
             // 
             // LineBut
             // 
-            this.LineBut.Location = new System.Drawing.Point(25, 201);
+            this.LineBut.Location = new System.Drawing.Point(24, 239);
             this.LineBut.Name = "LineBut";
             this.LineBut.Size = new System.Drawing.Size(178, 67);
             this.LineBut.TabIndex = 11;
@@ -150,7 +155,7 @@
             // 
             // ClearBut
             // 
-            this.ClearBut.Location = new System.Drawing.Point(25, 550);
+            this.ClearBut.Location = new System.Drawing.Point(24, 588);
             this.ClearBut.Name = "ClearBut";
             this.ClearBut.Size = new System.Drawing.Size(178, 66);
             this.ClearBut.TabIndex = 12;
@@ -160,7 +165,7 @@
             // 
             // EllipseBut
             // 
-            this.EllipseBut.Location = new System.Drawing.Point(25, 347);
+            this.EllipseBut.Location = new System.Drawing.Point(24, 385);
             this.EllipseBut.Name = "EllipseBut";
             this.EllipseBut.Size = new System.Drawing.Size(178, 67);
             this.EllipseBut.TabIndex = 13;
@@ -171,7 +176,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 9);
+            this.label1.Location = new System.Drawing.Point(11, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 20);
             this.label1.TabIndex = 14;
@@ -180,7 +185,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 104);
+            this.label2.Location = new System.Drawing.Point(20, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 20);
             this.label2.TabIndex = 15;
@@ -189,7 +194,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 40);
+            this.label3.Location = new System.Drawing.Point(20, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 20);
             this.label3.TabIndex = 16;
@@ -198,7 +203,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 128);
+            this.label4.Location = new System.Drawing.Point(20, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 20);
             this.label4.TabIndex = 17;
@@ -207,7 +212,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(116, 40);
+            this.label5.Location = new System.Drawing.Point(115, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 20);
             this.label5.TabIndex = 18;
@@ -216,7 +221,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(116, 128);
+            this.label6.Location = new System.Drawing.Point(115, 166);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 20);
             this.label6.TabIndex = 19;
@@ -226,16 +231,49 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(25, 420);
+            this.listBox1.Location = new System.Drawing.Point(24, 458);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(178, 124);
             this.listBox1.TabIndex = 20;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveStrip,
+            this.LoadStrip});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1209, 32);
+            this.toolStrip1.TabIndex = 21;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // SaveStrip
+            // 
+            this.SaveStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.SaveStrip.Image = ((System.Drawing.Image)(resources.GetObject("SaveStrip.Image")));
+            this.SaveStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveStrip.Name = "SaveStrip";
+            this.SaveStrip.Size = new System.Drawing.Size(84, 29);
+            this.SaveStrip.Text = "Save File";
+            this.SaveStrip.Click += new System.EventHandler(this.SaveStrip_Click);
+            // 
+            // LoadStrip
+            // 
+            this.LoadStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.LoadStrip.Image = ((System.Drawing.Image)(resources.GetObject("LoadStrip.Image")));
+            this.LoadStrip.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.LoadStrip.Name = "LoadStrip";
+            this.LoadStrip.Size = new System.Drawing.Size(86, 29);
+            this.LoadStrip.Text = "Load File";
+            this.LoadStrip.Click += new System.EventHandler(this.LoadStrip_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 641);
+            this.ClientSize = new System.Drawing.Size(1209, 685);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -259,6 +297,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,6 +321,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton SaveStrip;
+        private System.Windows.Forms.ToolStripButton LoadStrip;
     }
 }
 

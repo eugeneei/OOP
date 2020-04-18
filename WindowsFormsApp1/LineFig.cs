@@ -11,10 +11,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    [Serializable]
     public class LineFig : Figure
     {
 
-        public override string Draw()
+        public float x, y, xsize, ysize;
+
+        public void SetCoordinates(float x, float y, float xsize, float ysize)
+        {
+            this.x = (int)x;
+            this.y = (int)y;
+            this.xsize = (int)xsize;
+            this.ysize = (int)ysize;
+        }
+        public override string Draw(Graphics draw)
         {
 
             Pen pen = new Pen(Color.Black, 5);
