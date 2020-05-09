@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsFormsApp1
 {
@@ -26,17 +26,17 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void Show(object obj)
+        public void Show(ListBox box)
         {
-            (obj as ListBox).Items.Clear();
+            box.Items.Clear();
             for (var i = 0; i < log.Count; i++)
             {
-                (obj as ListBox).Items.Insert(i, log[i]);
+                box.Items.Insert(i, log[i]);
             }
         }
-        public void Clear(object obj)
+        public void Clear(ListBox box)
         {
-            (obj as ListBox).Items.Clear();
+            box.Items.Clear();
             list.Clear();
             log.Clear();
         }
@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
 
         public void SaveFile(string file)
         {
-            XmlSerializer formatter = new XmlSerializer(list.GetType());
+            BinaryFormatter formatter = new BinaryFormatter();
 
             using (FileStream fs = new FileStream(file, FileMode.Create))
             {
@@ -56,7 +56,8 @@ namespace WindowsFormsApp1
         {
             log.Clear();
 
-            XmlSerializer formatter = new XmlSerializer(list.GetType());
+            BinaryFormatter formatter = new BinaryFormatter();
+
             using (FileStream fs = new FileStream(file, FileMode.Open))
             {
                 list = (List<Figure>)formatter.Deserialize(fs);

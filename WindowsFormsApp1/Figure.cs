@@ -4,15 +4,13 @@ using System.Xml.Serialization;
 
 namespace WindowsFormsApp1
 {
-    [XmlInclude(typeof(LineFig))]
-    [XmlInclude(typeof(EllipseFig))]
-    [XmlInclude(typeof(RectangleFig))]
-    [Serializable]
-    public abstract class Figure
+    public interface Figure
     {
 
-        public abstract string Draw(Graphics draw);
+        string Draw(Graphics draw);
+        void SetCoordinates(float x, float y, float xsize, float ysize);
+        string Name();
+
 
     }
-    
 }

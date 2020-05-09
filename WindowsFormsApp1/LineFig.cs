@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 
 namespace WindowsFormsApp1
@@ -17,6 +11,10 @@ namespace WindowsFormsApp1
 
         public float x, y, xsize, ysize;
 
+        public string Name()
+        {
+            return "Line";
+        }
         public void SetCoordinates(float x, float y, float xsize, float ysize)
         {
             this.x = (int)x;
@@ -24,7 +22,7 @@ namespace WindowsFormsApp1
             this.xsize = (int)xsize;
             this.ysize = (int)ysize;
         }
-        public override string Draw(Graphics draw)
+        public string Draw(Graphics draw)
         {
 
             Pen pen = new Pen(Color.Black, 5);

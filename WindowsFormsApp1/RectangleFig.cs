@@ -15,6 +15,10 @@ namespace WindowsFormsApp1
     {
         public float x, y, xsize, ysize;
 
+        public string Name()
+        {
+            return "Rectangle";
+        }
         public void SetCoordinates(float x, float y, float xsize, float ysize)
         {
             this.x = (int)x;
@@ -23,7 +27,7 @@ namespace WindowsFormsApp1
             this.ysize = (int)ysize;
         }
 
-        public override string Draw(Graphics draw)
+        public string Draw(Graphics draw)
         {
 
             Pen pen = new Pen(Color.Black, 3);

@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
+
 
 namespace WindowsFormsApp1
 {
@@ -20,10 +11,21 @@ namespace WindowsFormsApp1
     {
        // Figure figure;
         FigureList serial = new FigureList();
+        List<Figure> plugins = new List<Figure>();
 
         public Form1()
         {
             InitializeComponent();
+
+            var plag = new Plagins();
+            plugins = plag.plugins;
+
+            int i = 0;
+            foreach (var figure in plugins)
+            {
+                listBox2.Items.Insert(i, figure.Name());
+                i++;
+            }
         }
 
 
@@ -66,8 +68,6 @@ namespace WindowsFormsApp1
         {
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
 
-            var figure = new FigureList();
-
             EllipseFig ell = new EllipseFig();
             
             ell.SetCoordinates((int)numericUpDown1.Value, (int)numericUpDown2.Value, (int)numericUpDown3.Value, (int)numericUpDown4.Value);
@@ -81,24 +81,53 @@ namespace WindowsFormsApp1
         private void SaveStrip_Click(object sender, EventArgs e)
         {
             var save = new SaveFileDialog(); 
-            save.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            save.Filter = "Data files(*.dat)|*.dat|All files(*.*)|*.*";
             if (save.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = save.FileName;
 
             serial.SaveFile(filename);
+            MessageBox.Show("Saved sucefully!");
         }
 
         private void LoadStrip_Click(object sender, EventArgs e)
         {
             var open = new OpenFileDialog();
-            open.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            open.Filter = "Data files(*.dat)|*.dat|All files(*.*)|*.*";
             if (open.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = open.FileName;
 
             Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
             serial.LoadFile(filename, g);
+            serial.Show(listBox1);
+        }
+
+        private void Form1_MouseMove(object sender, EventArgs e)
+        {
+            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+            serial.Draw(g);
+            serial.Show(listBox1);
+        }
+
+        private void FigureBut_Click(object sender, EventArgs e)
+        {
+            bool isnFound = true;
+            string figureText = FigureText.Text;
+            Graphics g = Graphics.FromHwnd(pictureBox1.Handle);
+
+                foreach (var figure in plugins)
+                    if (figure.Name() == figureText)
+                    {
+                        figure.SetCoordinates((int)numericUpDown1.Value, (int)numericUpDown2.Value, (int)numericUpDown3.Value, (int)numericUpDown4.Value);
+                        serial.Add(figure);
+                        isnFound = false;
+                    }
+                if (isnFound)
+                    MessageBox.Show("Plugin not found!");
+
+
+            serial.Draw(g);
             serial.Show(listBox1);
         }
     }

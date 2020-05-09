@@ -48,6 +48,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.SaveStrip = new System.Windows.Forms.ToolStripButton();
             this.LoadStrip = new System.Windows.Forms.ToolStripButton();
+            this.FigureBut = new System.Windows.Forms.Button();
+            this.FigureText = new System.Windows.Forms.TextBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -60,7 +63,8 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(245, 50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(927, 565);
+            this.pictureBox1.Size = new System.Drawing.Size(927, 487);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -155,7 +159,7 @@
             // 
             // ClearBut
             // 
-            this.ClearBut.Location = new System.Drawing.Point(24, 588);
+            this.ClearBut.Location = new System.Drawing.Point(24, 612);
             this.ClearBut.Name = "ClearBut";
             this.ClearBut.Size = new System.Drawing.Size(178, 66);
             this.ClearBut.TabIndex = 12;
@@ -231,7 +235,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(24, 458);
+            this.listBox1.Location = new System.Drawing.Point(245, 554);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(178, 124);
             this.listBox1.TabIndex = 20;
@@ -244,7 +248,7 @@
             this.LoadStrip});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1209, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(1205, 32);
             this.toolStrip1.TabIndex = 21;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -268,11 +272,40 @@
             this.LoadStrip.Text = "Load File";
             this.LoadStrip.Click += new System.EventHandler(this.LoadStrip_Click);
             // 
+            // FigureBut
+            // 
+            this.FigureBut.Location = new System.Drawing.Point(24, 518);
+            this.FigureBut.Name = "FigureBut";
+            this.FigureBut.Size = new System.Drawing.Size(178, 67);
+            this.FigureBut.TabIndex = 22;
+            this.FigureBut.Text = "Figure";
+            this.FigureBut.UseVisualStyleBackColor = true;
+            this.FigureBut.Click += new System.EventHandler(this.FigureBut_Click);
+            // 
+            // FigureText
+            // 
+            this.FigureText.Location = new System.Drawing.Point(24, 477);
+            this.FigureText.Name = "FigureText";
+            this.FigureText.Size = new System.Drawing.Size(178, 26);
+            this.FigureText.TabIndex = 23;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 20;
+            this.listBox2.Location = new System.Drawing.Point(990, 554);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(182, 124);
+            this.listBox2.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 685);
+            this.ClientSize = new System.Drawing.Size(1205, 712);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.FigureText);
+            this.Controls.Add(this.FigureBut);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label6);
@@ -292,6 +325,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Activated += new System.EventHandler(this.Form1_MouseMove);
+            this.ResizeEnd += new System.EventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
@@ -324,6 +359,9 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton SaveStrip;
         private System.Windows.Forms.ToolStripButton LoadStrip;
+        private System.Windows.Forms.Button FigureBut;
+        private System.Windows.Forms.TextBox FigureText;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
 
